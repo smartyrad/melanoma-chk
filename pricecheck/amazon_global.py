@@ -54,13 +54,13 @@ def AmazonParser_main(url):
 
             return data
         except Exception as e:
-            print e
+            print (e)
 
 
 def ReadAsin_main(link):
     # AsinList = csv.DictReader(open(os.path.join(os.path.dirname(__file__),"Asinfeed.csv")))
     url1 = "http://www.amazon.com/dp/" + link
-    print "Processing: " + url1
+    print ("Processing: " + url1)
     extracted_data_amazon_main.append(AmazonParser_main(url1))
     sleep(2)
 
@@ -74,6 +74,6 @@ def initialamazon_main(data):
     dom = html.fromstring(page.content)
     for link in dom.xpath('//li[@id="result_0"]/@data-asin'):  # select the url in href for all a tags(links)
         if counterinamazonmain < 1:
-            print link
+            print (link)
             ReadAsin_main(link)
             counterinamazonmain = 1

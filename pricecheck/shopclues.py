@@ -54,7 +54,7 @@ def ShopcluesParser(url):
 def ReadAsin_shopclues(link):
     # AsinList = csv.DictReader(open(os.path.join(os.path.dirname(__file__),"Asinfeed.csv")))
     url = link
-    print "Processing: " + url
+    print ("Processing: " + url)
     extracted_data_shopclues.append(ShopcluesParser(url))
     sleep(2)
 
@@ -73,6 +73,6 @@ def Initial_shopclues(data):
     dom = html.fromstring(page.content)
     for link in dom.xpath("//div[@class='column col3']/descendant::*[@href][1]/@href"):
         if counterin < 1:
-            print link
+            print (link)
             ReadAsin_shopclues(link)
             counterin = 1

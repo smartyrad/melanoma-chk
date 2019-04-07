@@ -149,36 +149,24 @@
 <div class="navbar-fixed">
 <nav>
   <div class="nav-wrapper hello">
-    <a href="#" class="left brand-logo"><i></i>MY PRICE CHECK</a>
+    <a href="#" class="left brand-logo"><i></i>CAPTIOCARE</a>
       <ul class="right">
-          <li><a onclick="viewa()" id="k"><i class="material-icons">search</i></a></li>
+          <li><a onclick="viewa()" id="k"><i class="material-icons">results</i></a></li>
       </ul>
 </div>
 </nav>
 </div>
 </div>
-<nav  class="hello" id="as">
-    <div class="nav-wrapper">
-      <form action="{% url 'search' %}" method="post">
-          {% csrf_token %}
-        <div class="input-field">
-          <input id="search" name="query" type="search" placeholder="Enter names of all products separated by commas" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center " id="b">MY PRICE CHECK</h1>
+        <h1 class="header center " id="b">Melanoma Detector</h1>
         <div class="row center">
-          <h5 class="header col s12 bold black-text">A price comparator that does just what it says!</h5>
+          <h5 class="header col s12 bold black-text">Melanoma skin lesion detector for everyone!</h5>
         </div>
         <div class="row center">
-          <a href="#" class="btn-large waves-effect waves-light grey">Get Started</a>
+          <a href="{% url 'results' %}" class="btn-large waves-effect waves-light grey">Get Started</a>
         </div>
         <br><br>
 

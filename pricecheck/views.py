@@ -6,6 +6,14 @@ from django.shortcuts import render
 from shopclues import *
 from amazon_india import *
 from amazon_global import *
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from django.shortcuts import render
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
+
 
 
 data = []
@@ -18,27 +26,13 @@ def pricecheck(request):
     return render(request, 'pricecheck/index.html', {})
 
 
-def search(request):
-    if 'query' in request.POST:
-        del extracted_data_amazon_india[:]
-        del extracted_data_amazon_main[:]
-        del extracted_data_shopclues[:]
-        hello = str(request.POST['query'])
-        data = hello.split(",")
-        i = 0
-        while i < len(data):
-            print "Inside link no" + str(i)
-            Initial_shopclues(data[i])
-            initialamazon_main(data[i])
-            initialamazon_India(data[i])
-            i = i + 1
-        print "Hello finally out"
-        print extracted_data_amazon_main
-        print extracted_data_shopclues
-        print extracted_data_amazon_india
-        datamatch=zip(extracted_data_amazon_india,extracted_data_shopclues,extracted_data_amazon_main)
-        context = {'datamatch':  datamatch}
-        return render(request, 'pricecheck/results.html', context)
-    else:
-        hi = "No query detected!!"
-        return HttpResponse('<h1>' + message + '</h1>')
+def results(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'pricecheck/results.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'pricecheck/results.html')
