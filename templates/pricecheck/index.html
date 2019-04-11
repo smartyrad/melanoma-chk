@@ -167,7 +167,7 @@
         </div>
         <br><br>
           {% block content %}
-  <form method="post" action="{% url 'results' %}" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
       <div class="file-field input-field">
       <div class="btn">
