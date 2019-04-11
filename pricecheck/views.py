@@ -99,6 +99,6 @@ def results(request):
     classes = {'nevus': 0, 'melanoma': 1}
     thre = 0.5
     # # obtain class predictions from probabilities
-    y_predi = (y_pred_c >= thre) * 1
+    y_predi = (y_pred >= thre) * 1
     y_predi = 1
     return render(request, 'pricecheck/results.html',{'predi': y_predi})
