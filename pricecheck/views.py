@@ -13,7 +13,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
-
+#
 
 import tensorflow as tf
 import keras.backend.tensorflow_backend
@@ -70,7 +70,7 @@ def pricecheck(request):
 
 def results(request):
     import cv2
-    k = cv2.imread('media/test.jpg')
+    k = cv2.imread(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
     k = cv2.cvtColor(k, cv2.COLOR_BGR2RGB)
     k = cv2.resize(k, (331, 331))
     k = np.expand_dims(k, axis=0)
