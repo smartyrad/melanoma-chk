@@ -55,9 +55,10 @@ import numpy as np
 
 # Create your views here.
 
-
+print("ttest")
 def pricecheck(request):
     if request.method == 'POST' and request.FILES['myfile']:
+        print("In func")
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         print("Uploading file")
