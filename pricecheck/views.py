@@ -18,7 +18,7 @@ from django.core.files.storage import FileSystemStorage
 import tensorflow as tf
 import keras.backend.tensorflow_backend
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="0"
+os.environ["CUDA_VISIBLE_DEVICES"]="2"
 
 from keras.layers import Input, Dense
 from keras.models import Model
