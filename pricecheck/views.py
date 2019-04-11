@@ -79,6 +79,7 @@ def pricecheck(request):
 
 def results(request):
     import cv2
+    global load_model,model_json
     k = cv2.imread(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
     k = cv2.cvtColor(k, cv2.COLOR_BGR2RGB)
     k = cv2.resize(k, (331, 331))
