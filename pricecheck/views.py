@@ -22,7 +22,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 from keras.layers import Input, Dense
 from keras.models import Model
-from data import main, generate_data
+from pricecheck.data import main, generate_data
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau, TensorBoard
 from keras.models import model_from_json
 from keras.preprocessing import image
