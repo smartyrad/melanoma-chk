@@ -38,19 +38,19 @@ import itertools
 
 import random
 
-df = pd.read_csv(cf.DATA_CONFIG['data_folder'] + 'csv/ISIC-2017_Training_Part3_GroundTruth.csv')
+df = pd.read_csv(DATA_CONFIG['data_folder'] + 'csv/ISIC-2017_Training_Part3_GroundTruth.csv')
 class_label=df['melanoma']
 class_id=df['image_id']
 
 data = []
 #
 # #Load model
-json_file = open(cf.DATA_CONFIG['data_folder'] + 'weights/classification/nasnetsegmentedfullweights/classification.json', 'r')
+json_file = open(DATA_CONFIG['data_folder'] + 'weights/classification/nasnetsegmentedfullweights/classification.json', 'r')
 model_json = json_file.read()
 json_file.close()
 load_model = model_from_json(model_json)
 #Load weights into new model
-load_model.load_weights(cf.DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
+load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
 print("Loaded model from disk")
 
 # Create your views here.

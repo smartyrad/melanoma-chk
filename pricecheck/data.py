@@ -39,7 +39,7 @@ def main():
 def mask_label():
 
 	#Image filename list and label for class
-	df=pd.read_csv(cf.DATA_CONFIG['data_folder'] + 'csv/ISIC-2017_Training_Part3_GroundTruth.csv')
+	df=pd.read_csv(DATA_CONFIG['data_folder'] + 'csv/ISIC-2017_Training_Part3_GroundTruth.csv')
 	class_label=df['melanoma']
 	class_id=df['image_id']
 
