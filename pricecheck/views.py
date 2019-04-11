@@ -45,13 +45,7 @@ class_id=df['image_id']
 data = []
 #
 # #Load model
-json_file = open(DATA_CONFIG['data_folder'] + 'weights/classification/nasnetsegmentedfullweights/classification.json', 'r')
-model_json = json_file.read()
-json_file.close()
-load_model = model_from_json(model_json)
-#Load weights into new model
-load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
-print("Loaded model from disk")
+
 
 # Create your views here.
 
@@ -79,11 +73,17 @@ def pricecheck(request):
 
 def results(request):
     import cv2
-    global load_model,model_json
     k = cv2.imread(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
     k = cv2.cvtColor(k, cv2.COLOR_BGR2RGB)
     k = cv2.resize(k, (331, 331))
     k = np.expand_dims(k, axis=0)
+    json_file = open(DATA_CONFIG['data_folder'] + 'weights/classification/nasnetsegmentedfullweights/classification.json', 'r')
+    model_json = json_file.read()
+    json_file.close()
+    load_model = model_from_json(model_json)
+    # Load weights into new model
+    load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
+    print("Loaded model from disk")
     y_pred = load_model.predict(k)
     classes = {'nevus': 0, 'melanoma': 1}
     thre = 0.5
