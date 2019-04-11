@@ -57,17 +57,24 @@ import numpy as np
 
 print("ttest")
 def pricecheck(request):
+    saved = False
     if request.method == 'POST' and request.FILES['myfile']:
         print("In func")
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         print("Uploading file")
+        from pathlib import Path
+
+        my_file = Path(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
+        if my_file.is_file():
+            os.remove(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
         filename = fs.save('test.jpg', myfile)
         uploaded_file_url = fs.url(filename)
+        saved = True
         return render(request, 'pricecheck/index.html', {
             'uploaded_file_url': uploaded_file_url
         })
-    return render(request, 'pricecheck/index.html', {})
+    return render(request, 'pricecheck/index.html', locals())
 
 
 def results(request):
