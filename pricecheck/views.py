@@ -64,7 +64,7 @@ load_model = model_from_json(model_json)
 #Load weights into new model
 load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
 print("Loaded model from disk")
-
+load_model._make_predict_function()
 # Create your views here.
 
 print("ttest")
