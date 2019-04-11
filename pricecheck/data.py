@@ -1,7 +1,3 @@
-import sys
-sys.path.append('../../')
-import config as cf
-
 import tensorflow as tf
 import keras.backend.tensorflow_backend
 gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.55)
