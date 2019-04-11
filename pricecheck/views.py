@@ -69,7 +69,7 @@ load_model._make_predict_function()
 
 print("ttest")
 def pricecheck(request):
-    saved = False
+    print("Inside")
     if request.method == 'POST' and request.FILES['myfile']:
         print("In func")
         myfile = request.FILES['myfile']
