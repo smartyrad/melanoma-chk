@@ -57,12 +57,12 @@ class_id=df['image_id']
 data = []
 #
 # #Load model
-json_file = open(DATA_CONFIG['data_folder'] + 'weights/classification/nasnetsegmentedfullweights/classification.json', 'r')
+json_file = open(DATA_CONFIG['data_folder'] + 'weights/classification/vggsimplefull/classification.json', 'r')
 model_json = json_file.read()
 json_file.close()
 load_model = model_from_json(model_json)
 #Load weights into new model
-load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/nasnetsegmentedfullweights/classification.h5")
+load_model.load_weights(DATA_CONFIG['data_folder'] + "weights/classification/vggsimplefull/classification.h5")
 print("Loaded model from disk")
 load_model._make_predict_function()
 # Create your views here.
@@ -93,7 +93,7 @@ def results(request):
     import cv2
     k = cv2.imread(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
     k = cv2.cvtColor(k, cv2.COLOR_BGR2RGB)
-    k = cv2.resize(k, (331, 331))
+    k = cv2.resize(k, (384, 384))
     k = np.expand_dims(k, axis=0)
     y_pred = load_model.predict(k)
     classes = {'nevus': 0, 'melanoma': 1}
