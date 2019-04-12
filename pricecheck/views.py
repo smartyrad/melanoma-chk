@@ -97,8 +97,7 @@ def results(request):
     k = np.expand_dims(k, axis=0)
     y_pred = load_model.predict(k)
     classes = {'nevus': 0, 'melanoma': 1}
-    thre = 0.5
+    thre = 0.507
     # # obtain class predictions from probabilities
     y_predi = (y_pred >= thre) * 1
-    y_predi = 1
     return render(request, 'pricecheck/results.html',{'predi': y_predi})
