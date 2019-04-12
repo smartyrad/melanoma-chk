@@ -182,15 +182,16 @@ $(document).ready(function(){
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>Modal Header</h4>
-      <p><img src="media/test.jpg">
-          <span class="card-title">Prediction Results</span>
+      <p><img src="media/test.jpg" height="331" width="331">
+          <br/>
+          <span class="card-title"><h1>Prediction Results</h1></span>
         </div>
         <div class="card-content">
             {% if predi == 1 %}
-          <p>The image has been checked and found to be Melanomic</p>
+          <h2>The image has been checked and found to be Melanomic</h2>
             {% endif %}
         {% if predi == 0 %}
-          <p>The image has been checked and found to be Nevus</p>
+          <h2>The image has been checked and found to be Nevus</h2>
             {% endif %}
             </p>
     </div>
