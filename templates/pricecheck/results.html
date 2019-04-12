@@ -181,17 +181,17 @@ $(document).ready(function(){
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p><img src="media/test.jpg" height="331" width="331">
+      <h4>Prediction Results</h4>
+      <p><img class="center" src="media/test.jpg" height="331" width="331">
           <br/>
           <span class="card-title"><h3>Prediction Results</h3></span>
         </div>
         <div class="card-content">
             {% if predi == 1 %}
-          <h4>The image has been checked and found to be Melanomic</h4>
+          <h3>The image has been checked and found to be Melanomic</h3>
             {% endif %}
         {% if predi == 0 %}
-          <h4>The image has been checked and found to be Nevus</h4>
+          <h3>The image has been checked and found to be Nevus</h3>
             {% endif %}
             </p>
     </div>
